@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<%- include ../partials/header %>
+
+<body>
+    <ol>
+        <% for (let item of items) {%>
+        <li><%= item.Name %></li>
+        <%}%>
+    </ol>
+</body>
+</html>

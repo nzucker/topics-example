@@ -13,10 +13,19 @@ app.use(express.json());
 app.use(express.static('public'));
 
 app.get('/', async (req, res) => {
-    // let topics = await db.query('select * from subtopics')
+    let topics = await db.query('select * from topics');
+    let subtopics = await db.query('select * from subtopics');
     res.render('pages/home', {
+        topics,
+        subtopics
+    });
+})
 
-    })
+app.get('/item/:subtopicid', async (req, res) => {
+    let items = await db.query('select * from items where SubTopicId = ' + req.params.subtopicid)
+    res.render('pages/item', {
+        items
+    });
 })
 
 app.listen(port, () => console.log('Topics app is listening on port ' + port));

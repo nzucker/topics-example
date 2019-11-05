@@ -1,0 +1,12 @@
+<li>
+    <div onclick="toggle(<%= topic.Id%>)"><%= topic.Name%></div>
+    <ol style="display:none" id="topic_<%= topic.Id%>">
+        <% for (let subtopic of subtopics) {%>
+        <% if (topic.Id === subtopic.TopicId) {%>
+        <%- include('subtopic', {
+                subtopic
+            }) %>
+        <%}%>
+        <%}%>
+    </ol>
+</li>

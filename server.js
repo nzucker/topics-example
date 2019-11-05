@@ -10,5 +10,13 @@ app.set('view engine', 'ejs');
 // middleware
 app.use(express.urlencoded());
 app.use(express.json());
+app.use(express.static('public'));
+
+app.get('/', async (req, res) => {
+    // let topics = await db.query('select * from subtopics')
+    res.render('pages/home', {
+
+    })
+})
 
 app.listen(port, () => console.log('Topics app is listening on port ' + port));
